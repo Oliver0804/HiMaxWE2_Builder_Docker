@@ -25,13 +25,13 @@ This command builds a Docker image named grove-vision-ai-module-v2 with the tag 
 To run the container and compile the firmware, use the following command:
 
 ```bash
-docker run -it --name my-grove-vision-ai grove-vision-ai-module-v2:1.0 /bin/bash
+docker run -it --name we2-grove-vision-ai grove-vision-ai-module-v2:1.0 /bin/bash
 ```
 
 If you wish to mount a directory from your host machine to the container to store the firmware files, use the following command:
 
 ```bash
-docker run -it --name my-grove-vision-ai -v /path/to/local/firmware:/root/firmware grove-vision-ai-module-v2:1.0
+docker run -it --name we2-grove-vision-ai -v /path/to/local/firmware:/root/firmware grove-vision-ai-module-v2:1.0
 ```
 
 Make sure to replace /path/to/local/firmware with the path to the directory on your host machine where you want the firmware files to be stored.
@@ -51,7 +51,7 @@ This command starts your Docker containers in the background, allowing you to co
 If you need to access the container after it is running, you can start a bash shell inside the container using:
 
 ```bash
-docker exec -it my-grove-vision-ai /bin/bash
+docker exec -it we2-grove-vision-ai /bin/bash
 ```
 
 This command provides you with interactive shell access to the running container. If the container uses a different shell, such as sh, you should replace /bin/bash with /bin/sh.
