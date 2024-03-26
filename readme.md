@@ -15,6 +15,7 @@ Clone this repository to your local machine and navigate into the cloned directo
 docker build -t grove-vision-ai-module-v2:1.0 .
 ```
 
+![./doc/dockerbuildmage.png](./doc/dockerbuildmage.png)
 This command builds a Docker image named grove-vision-ai-module-v2 with the tag 1.0 based on the Dockerfile in the current directory.
 
 ## Running the Container(without docker-compose)
@@ -54,6 +55,16 @@ docker exec -it my-grove-vision-ai /bin/bash
 This command provides you with interactive shell access to the running container. If the container uses a different shell, such as sh, you should replace /bin/bash with /bin/sh.
 
 Note: You need to have the container running in the background to use the exec command. If the container is not running, first start it using the docker-compose up -d command.
+
+## Run builder sh file
+
+```bash
+./build-firmware.sh
+```
+
+![./doc/demo2.png](./doc/demo2.png)
+
+![./doc/demo3.png](./doc/demo3.png)
 
 ## Cleaning Up
 
