@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   grove-vision-ai:
-    image: grove-vision-ai-module-v2
+    image: grove-vision-ai-module-v2:1.0
     volumes:
       - type: bind
         source: ./firmware

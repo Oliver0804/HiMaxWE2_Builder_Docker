@@ -2,6 +2,8 @@
 
 This repository contains the Docker configuration for building firmware for the Grove Vision AI Module V2 on a Linux environment, specifically tested on Ubuntu 20.04.
 
+[Seeed Grove Vision AI Module V2 GitHub Repository](https://github.com/HimaxWiseEyePlus/Seeed_Grove_Vision_AI_Module_V2)
+
 ## Prerequisites
 
 - Docker installed on your system.
