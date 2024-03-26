@@ -54,6 +54,8 @@ If you need to access the container after it is running, you can start a bash sh
 docker exec -it my-grove-vision-ai /bin/bash
 ```
 
+![./doc/demo2.png](./doc/demo2.png)
+
 This command provides you with interactive shell access to the running container. If the container uses a different shell, such as sh, you should replace /bin/bash with /bin/sh.
 
 Note: You need to have the container running in the background to use the exec command. If the container is not running, first start it using the docker-compose up -d command.
@@ -63,8 +65,6 @@ Note: You need to have the container running in the background to use the exec c
 ```bash
 ./build-firmware.sh
 ```
-
-![./doc/demo2.png](./doc/demo2.png)
 
 ![./doc/demo3.png](./doc/demo3.png)
 
