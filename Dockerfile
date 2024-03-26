@@ -6,7 +6,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # 安裝必要的套件
 RUN apt-get update && \
-    apt-get install -y make wget xz-utils git && \
+    apt-get install -y make wget xz-utils git vim && \
     rm -rf /var/lib/apt/lists/*
 
 # 下載 Arm GNU 工具鏈並解壓縮
@@ -23,8 +23,6 @@ RUN cd /root && \
     git clone https://github.com/HimaxWiseEyePlus/Seeed_Grove_Vision_AI_Module_V2
 
 COPY build-firmware.sh /root/build-firmware.sh
-
-CMD ["/root/build-firmware.sh"]
 
 
 # 設定容器啟動時的工作目錄

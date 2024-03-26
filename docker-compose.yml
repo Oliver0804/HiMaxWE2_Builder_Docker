@@ -2,10 +2,11 @@ version: '3.8'
 
 services:
   grove-vision-ai:
-    image: grove-vision-ai-module-v2 
+    image: grove-vision-ai-module-v2
     volumes:
       - type: bind
         source: ./firmware
         target: /root/firmware
     environment:
-      - TZ=Asia/Taipei 
+      - TZ=Asia/Taipei
+    command: tail -f /dev/null
