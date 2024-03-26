@@ -24,6 +24,7 @@ RUN cd /root && \
 
 COPY build-firmware.sh /root/build-firmware.sh
 
+CMD ["/root/build-firmware.sh"]
 
 # 設定容器啟動時的工作目錄
 WORKDIR /root
