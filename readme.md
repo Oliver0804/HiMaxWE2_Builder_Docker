@@ -80,6 +80,46 @@ docker-compose down
 
 This command stops the running container and removes it.
 
+# how to Flash output.img
+
+## Windows + Docker + TeraTerm
+
+Modify ATT_TYPE to change the compilation project
+
+![alt text](doc/flashHimax/docker_change_APP_Type.png)
+
+Run the build-firmware script
+
+![alt text](doc/flashHimax/docker_build-firmware.png)
+
+Check the serial port used on Windows
+
+![alt text](doc/flashHimax/windows.png)
+
+Set the connection port settings in Tera Term
+
+![alt text](<doc/flashHimax/TeraTerm_setting port.png>)
+![alt text](<doc/flashHimax/TeraTerm_Serial setup.png>)
+
+Enter download mode key "1"
+
+![alt text](<doc/flashHimax/TeraTerm_Select download mode.png>)
+
+Use XMODEM to download IMG to the WE2 device
+![alt text](<doc/flashHimax/TeraTerm_Menu Send.png>)
+
+![alt text](doc/flashHimax/TeraTerm_waiting_image.png)
+
+![alt text](<doc/flashHimax/TeraTerm_Select Image.png>)
+
+![alt text](doc/flashHimax/TeraTerm_Xmodem_send.png)
+
+Enter Y to Reboot
+
+![alt text](<doc/flashHimax/TeraTerm_reboot system.png>)
+
+![alt text](doc/flashHimax/TeraTerm_completed.png)
+
 ## Notes
 
 - The build script and Dockerfile are configured based on the assumption that they will be run on a Linux environment, specifically tested on Ubuntu 20.04.
