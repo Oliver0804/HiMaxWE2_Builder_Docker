@@ -10,6 +10,11 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* 
 RUN pip install ethos-u-vela
 
+# 安装 SSH 服务
+RUN apt-get update && \
+    apt-get install -y openssh-server && \
+    rm -rf /var/lib/apt/lists/*;
+
 
 # 下載 Arm GNU 工具鏈並解壓縮
 RUN cd /root && \
@@ -18,6 +23,18 @@ RUN cd /root && \
     rm arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz 
 # 將工具鏈加到 PATH
 ENV PATH="/root/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin:${PATH}"
+
+# sshd
+RUN mkdir /var/run/sshd
+RUN mkdir -p /run/sshd && \
+    chmod 0755 /run/sshd
+
+RUN echo 'root:password' | chpasswd
+RUN sed -i 's/^#PermitRootLogin .*/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN sed -i 's/^#PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config
+RUN echo "UseDNS no" >> /etc/ssh/sshd_config
+EXPOSE 22
+
 
 # clone Seeed Grove Vision AI Module V2 
 RUN cd /root && \
@@ -38,9 +55,8 @@ COPY build-firmware.sh /root/build-firmware.sh
 COPY run_vela.sh /root/run_vela.sh
 
 
-CMD ["/root/build-firmware.sh"]
 
-CMD ["/root/run_vela.sh ./ML_FVP_EVALUATION/vela/img_person_detect/person_int8_model.tflite"]
+#CMD ["/root/run_vela.sh /root/ML_FVP_EVALUATION/vela/img_person_detect/person_int8_model.tflite"]
 
 # 更改預設 shell 為 /bin/bash
 RUN ln -sf /bin/bash /bin/sh

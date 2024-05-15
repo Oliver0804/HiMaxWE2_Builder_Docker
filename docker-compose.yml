@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   grove-vision-ai:
-    image: grove-vision-ai-module-v2:1.3
+    image: grove-vision-ai-module-v2:1.4
     container_name: we2-grove-vision-ai
     volumes:
       - type: bind
@@ -11,3 +11,6 @@ services:
     environment:
       - TZ=Asia/Taipei
     command: tail -f /dev/null
+    ports:
+      - "2222:22"
+
