@@ -14,7 +14,7 @@ This repository contains the Docker configuration for building firmware for the 
 Clone this repository to your local machine and navigate into the cloned directory. Build the Docker image using the following command:
 
 ```bash
-docker build -t grove-vision-ai-module-v2:1.1 .
+docker build -t grove-vision-ai-module-v2:1.3 .
 ```
 
 ![./doc/dockerbuildmage.png](./doc/dockerbuildmage.png)

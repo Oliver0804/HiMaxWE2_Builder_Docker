@@ -6,22 +6,33 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # 安裝必要的套件
 RUN apt-get update && \
-    apt-get install -y make wget xz-utils git vim && \
-    rm -rf /var/lib/apt/lists/*
+    apt-get install -y make wget xz-utils git vim python3.8 python3-pip && \
+    rm -rf /var/lib/apt/lists/* 
+RUN pip install ethos-u-vela
+
 
 # 下載 Arm GNU 工具鏈並解壓縮
 RUN cd /root && \
     wget https://developer.arm.com/-/media/Files/downloads/gnu/13.2.rel1/binrel/arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz && \
     tar -xvf arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz && \
-    rm arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz
-
+    rm arm-gnu-toolchain-13.2.rel1-x86_64-arm-none-eabi.tar.xz 
 # 將工具鏈加到 PATH
 ENV PATH="/root/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin:${PATH}"
 
-# 複製 Seeed Grove Vision AI Module V2 儲存庫
+# clone Seeed Grove Vision AI Module V2 
 RUN cd /root && \
     git clone https://github.com/HimaxWiseEyePlus/Seeed_Grove_Vision_AI_Module_V2
 
+# clone ML_FVP_EVALUATION
+#https://github.com/HimaxWiseEyePlus/ML_FVP_EVALUATION
+
+RUN cd /root && \
+    git clone https://github.com/HimaxWiseEyePlus/ML_FVP_EVALUATION
+
+# Create folder to be extracted
+#mkdir temp
+# Extract the archive
+#tar -C temp -xvzf FVP_Corstone_SSE-300_Ethos-U55_11.14_24.tgz
 
 COPY build-firmware.sh /root/build-firmware.sh
 
