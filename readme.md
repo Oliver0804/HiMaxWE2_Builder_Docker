@@ -68,7 +68,7 @@ Note: You need to have the container running in the background to use the exec c
 ./build-firmware.sh
 ```
 
-![alt text](doc/image.png)
+![alt text](doc/build-firmware_sh.png)
 
 ![./doc/demo4.png](./doc/demo4.png)
 
@@ -81,6 +81,10 @@ docker-compose down
 ```
 
 This command stops the running container and removes it.
+
+# run vela sh
+
+![alt text](doc/run_vela_sh.png)
 
 # how to Flash output.img
 
