@@ -4,6 +4,10 @@ This repository contains the Docker configuration for building firmware for the 
 
 [Seeed Grove Vision AI Module V2 GitHub Repository](https://github.com/HimaxWiseEyePlus/Seeed_Grove_Vision_AI_Module_V2)
 
+## Use vscode edit
+
+![alt text](doc/vscode.png)
+
 ## Prerequisites
 
 - Docker installed on your system.
