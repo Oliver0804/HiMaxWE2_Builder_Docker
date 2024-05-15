@@ -46,6 +46,8 @@ To start the Grove Vision AI service in detached mode (i.e., in the background),
 
 ```bash
 docker-compose up -d
+docker-compose stop
+docker-compose start
 ```
 
 This command starts your Docker containers in the background, allowing you to continue using the terminal while they run.
