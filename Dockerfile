@@ -22,9 +22,15 @@ ENV PATH="/root/arm-gnu-toolchain-13.2.Rel1-x86_64-arm-none-eabi/bin:${PATH}"
 RUN cd /root && \
     git clone https://github.com/HimaxWiseEyePlus/Seeed_Grove_Vision_AI_Module_V2
 
+
 COPY build-firmware.sh /root/build-firmware.sh
 
+
 CMD ["/root/build-firmware.sh"]
+
+
+# 更改預設 shell 為 /bin/bash
+RUN ln -sf /bin/bash /bin/sh
 
 # 設定容器啟動時的工作目錄
 WORKDIR /root
