@@ -35,10 +35,12 @@ RUN cd /root && \
 #tar -C temp -xvzf FVP_Corstone_SSE-300_Ethos-U55_11.14_24.tgz
 
 COPY build-firmware.sh /root/build-firmware.sh
+COPY run_vela.sh /root/run_vela.sh
 
 
 CMD ["/root/build-firmware.sh"]
 
+CMD ["/root/run_vela.sh ./ML_FVP_EVALUATION/vela/img_person_detect/person_int8_model.tflite"]
 
 # 更改預設 shell 為 /bin/bash
 RUN ln -sf /bin/bash /bin/sh
