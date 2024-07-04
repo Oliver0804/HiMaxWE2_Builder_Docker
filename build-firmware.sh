@@ -1,7 +1,10 @@
 #!/bin/bash
 
+# Define the base directory
+base_dir="/root/HIMAX_WE2_Rabboni"
+
 # Define the path to the makefile
-makefile_path="/root/Seeed_Grove_Vision_AI_Module_V2/EPII_CM55M_APP_S/makefile"
+makefile_path="$base_dir/EPII_CM55M_APP_S/makefile"
 
 # Display available projects
 echo "Available projects to compile:"
@@ -17,22 +20,29 @@ echo "9. tflm_yolov8_pose"
 echo "10. pdm_record"
 echo "11. imu_read"
 echo "12. hello_world_cmsis_dsp"
+echo "13. tflm_nycu_z_axsis"
+echo "14. tflm_imu_app"
 
 # Prompt the user to enter the project name
-echo "Please enter the project name you wish to compile from the list above:"
+echo "Please enter the project name you wish to compile from the list above (default is 'tflm_imu_app'):"
 read project_name
+
+# Default to 'tflm_imu_app' if no input is provided
+if [ -z "$project_name" ]; then
+    project_name="tflm_imu_app"
+fi
 
 # Update the makefile with the specified APP_TYPE
 sed -i "s/^APP_TYPE = .*/APP_TYPE = $project_name/" $makefile_path
 
 echo "Navigating to the firmware compilation directory..."
-cd /root/Seeed_Grove_Vision_AI_Module_V2/EPII_CM55M_APP_S || exit
+cd "$base_dir/EPII_CM55M_APP_S" || exit
 
 echo "Cleaning old build files and compiling new firmware..."
 make clean && make || { echo "Compilation failed"; exit 1; }
 
 echo "Navigating to the firmware image generation directory..."
-cd /root/Seeed_Grove_Vision_AI_Module_V2 || exit
+cd $base_dir || exit
 
 echo "Copying compiled firmware to the image generation directory..."
 cp EPII_CM55M_APP_S/obj_epii_evb_icv30_bdv10/gnu_epii_evb_WLCSP65/EPII_CM55M_gnu_epii_evb_WLCSP65_s.elf we2_image_gen_local/input_case1_secboot/ || { echo "Failed to copy firmware for image generation"; exit 1; }
@@ -44,3 +54,4 @@ echo "Copying generated firmware image to the external firmware directory..."
 cp output_case1_sec_wlcsp/output.img /root/firmware/ || { echo "Failed to copy the firmware image. Image creation might have failed."; exit 1; }
 
 echo "Firmware image successfully created and copied."
+

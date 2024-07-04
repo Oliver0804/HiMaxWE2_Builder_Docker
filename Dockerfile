@@ -38,8 +38,8 @@ EXPOSE 22
 
 # clone Seeed Grove Vision AI Module V2 
 RUN cd /root && \
-    git clone https://github.com/HimaxWiseEyePlus/Seeed_Grove_Vision_AI_Module_V2
-
+#    git clone https://github.com/HimaxWiseEyePlus/Seeed_Grove_Vision_AI_Module_V2
+git clone https://github.com/HimaxWiseEyePlus/HIMAX_WE2_Rabboni.git
 # clone ML_FVP_EVALUATION
 #https://github.com/HimaxWiseEyePlus/ML_FVP_EVALUATION
 

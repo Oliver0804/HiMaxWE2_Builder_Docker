@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
   grove-vision-ai:
-    image: grove-vision-ai-module-v2:1.4
-    container_name: we2-grove-vision-ai
+    image: himax_rabboni
+    container_name: himax_rabboni_builder
     volumes:
       - type: bind
         source: ./firmware
