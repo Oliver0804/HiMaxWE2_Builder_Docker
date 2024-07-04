@@ -54,4 +54,3 @@ echo "Copying generated firmware image to the external firmware directory..."
 cp output_case1_sec_wlcsp/output.img /root/firmware/ || { echo "Failed to copy the firmware image. Image creation might have failed."; exit 1; }
 
 echo "Firmware image successfully created and copied."
-
